@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
 
+import spaceinvaders.MenuBar.MenuBarManager;
+
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer;
@@ -38,8 +40,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         // Set images
         imageSelection.setGameImages();
 
-        MenuBarHandler MenuBarHandler = new MenuBarHandler(this);
-        frame.setJMenuBar(MenuBarHandler.getMenuBar());
+       frame.setJMenuBar(MenuBarManager.createMenuBar());
 
         setFocusable(true);
         addKeyListener(this);
@@ -66,6 +67,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     @Override
     public void keyTyped(KeyEvent e) {
+
         // Not used. Not providing an implementation Violates Integration Segregation
         // Principle
         // Could be used for character keys.
