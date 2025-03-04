@@ -9,6 +9,7 @@ import javax.swing.*;
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer;
+    private Timer shootingTimer;
     public ArrayList<InvaderBox> invaderboxes;
     public ArrayList<Bullet> bullets;
     public Random random;
