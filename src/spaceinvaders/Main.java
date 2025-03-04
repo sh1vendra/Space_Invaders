@@ -19,5 +19,9 @@ public class Main {
 // Aaditya
 // Shivendra. branch
 
+<<<<<<< HEAD
 //Sachin Test Commit
 // Aditya Branch
+=======
+// Aditya test branch
+>>>>>>> aditya_branch
