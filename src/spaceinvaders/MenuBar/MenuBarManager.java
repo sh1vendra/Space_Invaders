@@ -1,6 +1,6 @@
-import javax.swing.*;
-
 package spaceinvaders.MenuBar;
+
+import javax.swing.*;
 
 // created a class
 public class MenuBarManager {

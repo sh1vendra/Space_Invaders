@@ -14,9 +14,9 @@ public class InvaderMenu {
         JMenuItem img3 = new JMenuItem("Invader 3");
         JMenuItem customImg = new JMenuItem("Custom Image");
 
-        img1.addActionListener(e -> ImageLoader.setInvaderImage("invader1.png"));
-        img2.addActionListener(e -> ImageLoader.setInvaderImage("invader2.png"));
-        img3.addActionListener(e -> ImageLoader.setInvaderImage("invader3.png"));
+        img1.addActionListener(e -> ImageLoader.setInvaderImage("../resources/InvaderImages/invader1.png"));
+        img2.addActionListener(e -> ImageLoader.setInvaderImage("../resources/InvaderImages/invader2.png"));
+        img3.addActionListener(e -> ImageLoader.setInvaderImage("../resources/InvaderImages/invader3.png"));
         customImg.addActionListener(e -> ImageLoader.setCustomInvaderImage());
 
         invaderMenu.add(img1);
