@@ -9,3 +9,4 @@ public class GameExceptions {
         JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
+//test
