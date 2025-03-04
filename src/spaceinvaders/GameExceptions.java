@@ -1,6 +1,9 @@
 package spaceinvaders;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import javax.swing.JOptionPane;
+
 
 
 public class GameExceptions {
