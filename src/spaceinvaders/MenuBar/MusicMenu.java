@@ -33,8 +33,18 @@ public class MusicMenu {
         return musicMenu;
     }
 
-    public static void playCustomMusic() {
-        
+    public static void playMusic(String filename) {
+        stopMusic();
+        try {
+            File file = new File("resources/music/" + filename);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+        } catch (Exception e) {
+            System.out.println("Error: Unable to play music. " + e.getMessage());
+        }
     }
 
     public static void stopMusic() {
