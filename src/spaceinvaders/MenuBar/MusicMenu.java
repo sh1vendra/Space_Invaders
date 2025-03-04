@@ -4,6 +4,7 @@ import javax.sound.sampled.*;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.*;
 
 import java.io.*;
 
@@ -22,9 +23,9 @@ public class MusicMenu {
         JMenuItem music3 = new JMenuItem("Music 3");
         JMenuItem customMusic = new JMenuItem("Custom Music");
 
-        music1.addActionListener(e -> playMusic("music1.wav"));
-        music2.addActionListener(e -> playMusic("music2.wav"));
-        music3.addActionListener(e -> playMusic("music3.wav"));
+        music1.addActionListener(e -> playMusic("../resources/MusicFolder/music1.mp3"));
+        music2.addActionListener(e -> playMusic("../resources/MusicFolder/music2.mp3"));
+        music3.addActionListener(e -> playMusic("../resources/MusicFolder/music3.mp3"));
         customMusic.addActionListener(e -> playCustomMusic());
 
         musicMenu.add(music1);

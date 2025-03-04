@@ -8,15 +8,15 @@ public class BulletMenu {
     public static JMenu createBulletMenu() {
         JMenu bulletMenu = new JMenu("Bullet Type");
 
-        JMenuItem shape1 = new JMenuItem("Circle");
-        JMenuItem shape2 = new JMenuItem("Triangle");
-        JMenuItem shape3 = new JMenuItem("Square");
+        JMenuItem shape1 = new JMenuItem("bullet1");
+        JMenuItem shape2 = new JMenuItem("bullet2");
+        JMenuItem shape3 = new JMenuItem("bullet3");
         JMenuItem customImg = new JMenuItem("Custom Bullet Image");
 
-        shape1.addActionListener(e -> ImageLoader.setBulletType("circle"));
-        shape2.addActionListener(e -> ImageLoader.setBulletType("triangle"));
-        shape3.addActionListener(e -> ImageLoader.setBulletType("square"));
-        customImg.addActionListener(e -> ImageLoader.setCustomBulletImage());
+        shape1.addActionListener(e -> setBulletType("../resources/BulletImages/bullet1.png"));
+        shape2.addActionListener(e -> setBulletType("../resources/BulletImages/bullet2.png"));
+        shape3.addActionListener(e -> setBulletType("../resources/BulletImages/bullet3.png"));
+        customImg.addActionListener(e -> setCustomBulletImage());
 
         bulletMenu.add(shape1);
         bulletMenu.add(shape2);
@@ -25,5 +25,15 @@ public class BulletMenu {
 
         return bulletMenu;
     }
+
+    private static void setBulletType(String imagePath) {
+        System.out.println("Invader image set to: " + imagePath);
+    }
+
+    private static void setCustomBulletImage() {
+        String imagePath = JOptionPane.showInputDialog("Enter image URL or path:");
+        System.out.println("Custom invader image set to: " + imagePath);
+    }
+
 
 }

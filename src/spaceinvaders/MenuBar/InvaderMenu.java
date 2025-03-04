@@ -1,9 +1,5 @@
 package spaceinvaders.MenuBar;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-
-// new branch for Invadermenu completed
+import javax.swing.*;
 
 public class InvaderMenu {
     public static JMenu createInvaderMenu() {
@@ -13,11 +9,10 @@ public class InvaderMenu {
         JMenuItem img2 = new JMenuItem("Invader 2");
         JMenuItem img3 = new JMenuItem("Invader 3");
         JMenuItem customImg = new JMenuItem("Custom Image");
-
-        img1.addActionListener(e -> ImageLoader.setInvaderImage("../resources/InvaderImages/invader1.png"));
-        img2.addActionListener(e -> ImageLoader.setInvaderImage("../resources/InvaderImages/invader2.png"));
-        img3.addActionListener(e -> ImageLoader.setInvaderImage("../resources/InvaderImages/invader3.png"));
-        customImg.addActionListener(e -> ImageLoader.setCustomInvaderImage());
+        img1.addActionListener(e -> setInvaderImage("../resources/InvaderImages/invader1.png"));
+        img2.addActionListener(e -> setInvaderImage("../resources/InvaderImages/invader2.png"));
+        img3.addActionListener(e -> setInvaderImage("../resources/InvaderImages/invader3.png"));
+        customImg.addActionListener(e -> setCustomInvaderImage());
 
         invaderMenu.add(img1);
         invaderMenu.add(img2);
@@ -26,4 +21,16 @@ public class InvaderMenu {
 
         return invaderMenu;
     }
+
+    private static void setInvaderImage(String imagePath) {
+        System.out.println("Invader image set to: " + imagePath);
+    }
+
+    private static void setCustomInvaderImage() {
+        String imagePath = JOptionPane.showInputDialog("Enter image URL or path:");
+        System.out.println("Custom invader image set to: " + imagePath);
+    }
+
+
+    
 }

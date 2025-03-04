@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
-import spaceinvaders.MenuBar.ImageLoader;
 import spaceinvaders.MenuBar.MenuBarManager;
 
 
@@ -39,9 +38,9 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         paintingActions = new PaintingActions();
 
         // Set images
-        // imageSelection.setGameImages();
+        imageSelection.setGameImages();
 
-        ImageLoader.setGameInstance(this);
+        // ImageLoader.setGameInstance(this);
 
 
        frame.setJMenuBar(MenuBarManager.createMenuBar());
