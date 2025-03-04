@@ -2,6 +2,7 @@ package spaceinvaders;
 
 import javax.swing.JOptionPane;
 
+
 public class GameExceptions {
     
     // Method to display error dialog
@@ -10,3 +11,8 @@ public class GameExceptions {
     }
 }
 //test
+
+// Exception for invalid image URL
+public static void handleImageURLException(MalformedURLException e, String imageType) {
+    showErrorDialog("Invalid URL for " + imageType + " image: " + e.getMessage());
+}
