@@ -51,5 +51,24 @@ public class ImageLoader {
         selectCustomImage("bullet");
     }
 
-    
+    // File chooser for selecting custom images
+    private static void selectCustomImage(String type) {
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                URL imageUrl = file.toURI().toURL();
+                if (type.equals("shooter")) {
+                    setShooterImage(imageUrl.toString());
+                } else if (type.equals("invader")) {
+                    setInvaderImage(imageUrl.toString());
+                } else if (type.equals("bullet")) {
+                    setBulletType(imageUrl.toString());
+                }
+            } catch (MalformedURLException e) {
+                JOptionPane.showMessageDialog(null, "Invalid image file!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 }
