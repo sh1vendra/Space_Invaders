@@ -1,5 +1,5 @@
 package spaceinvaders;
 
-public class invader {
+public class InvaderMenu {
     
 }
