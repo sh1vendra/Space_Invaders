@@ -16,3 +16,8 @@ public class GameExceptions {
 public static void handleImageURLException(MalformedURLException e, String imageType) {
     showErrorDialog("Invalid URL for " + imageType + " image: " + e.getMessage());
 }
+
+// Exception for image loading failure
+public static void handleImageLoadException(IOException e, String imageType) {
+    showErrorDialog("Failed to load " + imageType + " image: " + e.getMessage());
+}
