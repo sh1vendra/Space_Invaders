@@ -13,7 +13,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     public ArrayList<InvaderBox> invaderboxes;
     public ArrayList<Bullet> bullets;
     public Random random;
-    public boolean moveLeft, moveRight;
+    public boolean moveLeft, moveRight, shooting;
     private final ListenerActions listenerActions;
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
@@ -22,7 +22,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private int shooter_X_Coordinate = 200;
 
     // Constructor
-    public SpaceInvadersUI() {
+    public SpaceInvadersUI(JFrame frame) {
         //
         timer = new Timer(20, this); // 20ms delay for smoother animations
         invaderboxes = new ArrayList<>(); // Need to describe what ArrayList<> is.
@@ -30,12 +30,16 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         random = new Random();
         moveLeft = false;
         moveRight = false;
+        shooting = false;
         listenerActions = new ListenerActions();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
 
         // Set images
         imageSelection.setGameImages();
+
+        MenuBarHandler MenuBarHandler = new MenuBarHandler(this);
+        frame.setJMenuBar(MenuBarHandler.getMenuBar());
 
         setFocusable(true);
         addKeyListener(this);
