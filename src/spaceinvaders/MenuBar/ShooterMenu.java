@@ -1,8 +1,8 @@
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 package spaceinvaders.MenuBar;
+
+import javax.swing.*;
+import spaceinvaders.MenuBar.ImageLoader;
+
 // completed
 public class ShooterMenu {
     public static JMenu createShooterMenu() {

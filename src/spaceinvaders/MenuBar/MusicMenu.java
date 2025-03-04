@@ -1,10 +1,12 @@
+package spaceinvaders.MenuBar;
+
 import javax.sound.sampled.*;
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.io.*;
 
-package spaceinvaders.MenuBar;
 
 // create a branch for MusicMenu completed.
 // create a branch for MusicMenu completed
@@ -31,6 +33,15 @@ public class MusicMenu {
         musicMenu.add(customMusic);
 
         return musicMenu;
+    }
+
+    public static void playCustomMusic() {
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            playMusic(file.getAbsolutePath());
+        }
     }
 
     public static void playMusic(String filename) {
