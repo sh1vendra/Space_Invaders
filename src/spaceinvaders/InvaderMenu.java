@@ -1,7 +1,13 @@
-package spaceinvaders.MenuBar;
+package spaceinvaders;
 import javax.swing.*;
 
 public class InvaderMenu {
+    private SpaceInvadersUI game;
+    
+    public InvaderMenu(SpaceInvadersUI game){
+        this.game = game;
+    }
+
     public static JMenu createInvaderMenu() {
         JMenu invaderMenu = new JMenu("Invader Image");
 
@@ -9,9 +15,9 @@ public class InvaderMenu {
         JMenuItem img2 = new JMenuItem("Invader 2");
         JMenuItem img3 = new JMenuItem("Invader 3");
         JMenuItem customImg = new JMenuItem("Custom Image");
-        img1.addActionListener(e -> setInvaderImage("../resources/InvaderImages/invader1.png"));
-        img2.addActionListener(e -> setInvaderImage("../resources/InvaderImages/invader2.png"));
-        img3.addActionListener(e -> setInvaderImage("../resources/InvaderImages/invader3.png"));
+        img1.addActionListener(e -> setInvaderImage("./resources/InvaderImages/invader1.png"));
+        img2.addActionListener(e -> setInvaderImage("./resources/InvaderImages/invader2.png"));
+        img3.addActionListener(e -> setInvaderImage("./resources/InvaderImages/invader3.png"));
         customImg.addActionListener(e -> setCustomInvaderImage());
 
         invaderMenu.add(img1);

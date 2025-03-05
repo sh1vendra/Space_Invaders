@@ -1,10 +1,17 @@
-package spaceinvaders.MenuBar;
+package spaceinvaders;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 // new bulletMenu branch completed
 public class BulletMenu {
+    private SpaceInvadersUI game;
+    
+    public BulletMenu(SpaceInvadersUI game){
+        this.game = game;
+    }
+    
     public static JMenu createBulletMenu() {
         JMenu bulletMenu = new JMenu("Bullet Type");
 

@@ -1,12 +1,10 @@
-package spaceinvaders.MenuBar;
+package spaceinvaders;
 
+import java.io.*;
 import javax.sound.sampled.*;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.*;
-
-import java.io.*;
 
 
 // create a branch for MusicMenu completed.

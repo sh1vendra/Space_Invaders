@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
-import spaceinvaders.MenuBar.MenuBarManager;
 
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
@@ -24,7 +23,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private int shooter_X_Coordinate = 200;
 
     // Constructor
-    public SpaceInvadersUI(JFrame frame) {
+    public SpaceInvadersUI() {
         //
         timer = new Timer(20, this); // 20ms delay for smoother animations
         invaderboxes = new ArrayList<>(); // Need to describe what ArrayList<> is.
@@ -43,7 +42,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         // ImageLoader.setGameInstance(this);
 
 
-       frame.setJMenuBar(MenuBarManager.createMenuBar(this));
+    //    frame.setJMenuBar(MenuBarManager.createMenuBar(this));
 
         setFocusable(true);
         addKeyListener(this);

@@ -1,6 +1,5 @@
-package spaceinvaders.MenuBar;
+package spaceinvaders;
 
-import spaceinvaders.SpaceInvadersUI;
 import javax.swing.*;
 
 // created a class
