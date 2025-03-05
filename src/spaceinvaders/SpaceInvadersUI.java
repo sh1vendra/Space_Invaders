@@ -43,7 +43,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         // ImageLoader.setGameInstance(this);
 
 
-       frame.setJMenuBar(MenuBarManager.createMenuBar());
+       frame.setJMenuBar(MenuBarManager.createMenuBar(this));
 
         setFocusable(true);
         addKeyListener(this);
