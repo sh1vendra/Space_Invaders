@@ -9,8 +9,11 @@ import javax.imageio.ImageIO;
 public class ImageSelection {
     private Image shooterImage;
     private Image invaderImage;
-    private static final String DEFAULT_SHOOTER_PATH = "/resources/default/ShooterDefault.png";
-    private static final String DEFAULT_INVADER_PATH = "/resources/default/InvaderDefault.png";
+    private Image bulletImage;
+
+    private static final String DEFAULT_SHOOTER_PATH = "./images/default/ShooterImage.png";
+    private static final String DEFAULT_INVADER_PATH = "./images/default/InvaderImage.png";
+    private static final String DEFAULT_BULLET_PATH = "./images/default/BulletImage.png";
 
     public Image getShooterImage() {
         return shooterImage;
@@ -20,9 +23,29 @@ public class ImageSelection {
         return invaderImage;
     }
 
+    public Image getBulletImage() {
+        return bulletImage;
+    }
+
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "./resources/ShooterImages/shooter1.png", DEFAULT_SHOOTER_PATH);
-        invaderImage = loadImage("invader", "./resources/InvaderImages/invader1.png", DEFAULT_INVADER_PATH);
+        shooterImage = loadImage("shooter", DEFAULT_SHOOTER_PATH, DEFAULT_SHOOTER_PATH);
+        bulletImage = loadImage("bullet", DEFAULT_BULLET_PATH, DEFAULT_BULLET_PATH);
+        invaderImage = loadImage("invader", DEFAULT_INVADER_PATH, DEFAULT_INVADER_PATH);
+    }
+
+    public void setShooterImage(String imagePath) {
+        shooterImage = loadImage("shooter", imagePath, DEFAULT_SHOOTER_PATH);
+        System.out.println("Shooter image updated: " + imagePath);
+    }
+
+    public void setInvaderImage(String imagePath) {
+        invaderImage = loadImage("invader",imagePath, DEFAULT_INVADER_PATH);
+        System.out.println("Invader image updated: " + imagePath);
+    }
+
+    public void setBulletImage(String imagePath) {
+        bulletImage = loadImage("bullet",imagePath, DEFAULT_BULLET_PATH);
+        System.out.println("Bullet image updated: " + imagePath);
     }
 
     private static Image loadImage(String imageType, String mainResourcePath, String defaultResourcePath) {

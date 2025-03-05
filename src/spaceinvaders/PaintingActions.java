@@ -19,20 +19,28 @@ public class PaintingActions {
 
     }
 
-    public void drawInvaders(Graphics g, java.util.List<SpaceInvadersUI.InvaderBox> invaderboxes, Image invaderboxImage,
-            SpaceInvadersUI game) {
+    public void drawInvaders(Graphics g, java.util.List<SpaceInvadersUI.InvaderBox> invaderboxes,SpaceInvadersUI game) {
+        Image invaderboxImage = game.imageSelection.getInvaderImage();
+
         for (SpaceInvadersUI.InvaderBox invaderbox : invaderboxes) {
             g.drawImage(invaderboxImage, invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size, game);
         }
     }
 
-    public void drawBullets(Graphics g, java.util.List<SpaceInvadersUI.Bullet> bullets) {
-        g.setColor(Color.YELLOW);
+    public void drawBullets(Graphics g, java.util.List<SpaceInvadersUI.Bullet> bullets, SpaceInvadersUI game) {
+        Image bulletImage = game.imageSelection.getBulletImage(); // Get bullet image
+
         for (SpaceInvadersUI.Bullet bullet : bullets) {
-            // Make the bullet into a triangle. Remember where the origin is on the game
-            int[] xPoints = { bullet.x, bullet.x - 5, bullet.x + 5 };
-            int[] yPoints = { bullet.y, bullet.y + 10, bullet.y + 10 };
-            g.fillPolygon(xPoints, yPoints, 3);
+            if (bulletImage != null) {
+                // Draw bullet as an image if available
+                g.drawImage(bulletImage, bullet.x - 5, bullet.y, 10, 10, game);
+            } else {
+                // Default to triangle shape if no image is found
+                g.setColor(Color.YELLOW);
+                int[] xPoints = { bullet.x, bullet.x - 5, bullet.x + 5 };
+                int[] yPoints = { bullet.y, bullet.y + 10, bullet.y + 10 };
+                g.fillPolygon(xPoints, yPoints, 3);
+            }
         }
     }
 }
