@@ -20,9 +20,9 @@ public class BulletMenu {
         JMenuItem shape3 = new JMenuItem("bullet3");
         JMenuItem customImg = new JMenuItem("Custom Bullet Image");
 
-        shape1.addActionListener(e -> setBulletType("../resources/BulletImages/bullet1.png"));
-        shape2.addActionListener(e -> setBulletType("../resources/BulletImages/bullet2.png"));
-        shape3.addActionListener(e -> setBulletType("../resources/BulletImages/bullet3.png"));
+        shape1.addActionListener(e -> setBulletType("./resources/BulletImages/bullet1.png"));
+        shape2.addActionListener(e -> setBulletType("./resources/BulletImages/bullet2.png"));
+        shape3.addActionListener(e -> setBulletType("./resources/BulletImages/bullet3.png"));
         customImg.addActionListener(e -> setCustomBulletImage());
 
         bulletMenu.add(shape1);

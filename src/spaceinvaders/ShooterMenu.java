@@ -20,9 +20,9 @@ public class ShooterMenu {
         JMenuItem img3 = new JMenuItem("Shooter 3");
         JMenuItem customImg = new JMenuItem("Custom Image");
 
-        img1.addActionListener(e -> setShooterImage("../resources/ShooterImages/shooter1.png"));
-        img2.addActionListener(e -> setShooterImage("../resources/ShooterImages/shooter2.png"));
-        img3.addActionListener(e -> setShooterImage("../resources/ShooterImages/shooter3.png"));
+        img1.addActionListener(e -> setShooterImage("./resources/ShooterImages/shooter1.png"));
+        img2.addActionListener(e -> setShooterImage("./resources/ShooterImages/shooter2.png"));
+        img3.addActionListener(e -> setShooterImage("./resources/ShooterImages/shooter3.png"));
         customImg.addActionListener(e -> setCustomShooterImage());
 
         shooterMenu.add(img1);
