@@ -11,9 +11,9 @@ public class ImageSelection {
     private Image invaderImage;
     private Image bulletImage;
 
-    private static final String DEFAULT_SHOOTER_PATH = "/resources/default/ShooterImage.png";
-    private static final String DEFAULT_INVADER_PATH = "/resources/default/InvaderImage.png";
-    private static final String DEFAULT_BULLET_PATH = "/resources/default/BulletImage.png";
+    private static final String DEFAULT_SHOOTER_PATH = "./images/default/ShooterImage.png";
+    private static final String DEFAULT_INVADER_PATH = "./images/default/InvaderImage.png";
+    private static final String DEFAULT_BULLET_PATH = "./images/default/BulletImage.png";
 
     public Image getShooterImage() {
         return shooterImage;
@@ -28,9 +28,9 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "./resources/ShooterImages/shooter1.png", DEFAULT_SHOOTER_PATH);
-        bulletImage = loadImage("bullet", "./resources/BulletImages/bullet1.png", DEFAULT_BULLET_PATH);
-        invaderImage = loadImage("invader", "./resources/InvaderImages/invader1.png", DEFAULT_INVADER_PATH);
+        shooterImage = loadImage("shooter", DEFAULT_SHOOTER_PATH, DEFAULT_SHOOTER_PATH);
+        bulletImage = loadImage("bullet", DEFAULT_BULLET_PATH, DEFAULT_BULLET_PATH);
+        invaderImage = loadImage("invader", DEFAULT_INVADER_PATH, DEFAULT_INVADER_PATH);
     }
 
     public void setShooterImage(String imagePath) {

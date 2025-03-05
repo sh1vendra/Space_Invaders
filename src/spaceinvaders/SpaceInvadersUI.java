@@ -85,7 +85,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         paintingActions.drawShooter(g, this);
 
         // Draw falling invaderboxes (as images)
-        paintingActions.drawInvaders(g, invaderboxes, imageSelection.getInvaderImage(), this);
+        paintingActions.drawInvaders(g, invaderboxes, this);
 
         // Draw bullets (bullets)
         paintingActions.drawBullets(g, bullets);
