@@ -6,13 +6,15 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
 
+
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer;
+    private Timer shootingTimer;
     public ArrayList<InvaderBox> invaderboxes;
     public ArrayList<Bullet> bullets;
     public Random random;
-    public boolean moveLeft, moveRight;
+    public boolean moveLeft, moveRight, shooting;
     private final ListenerActions listenerActions;
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
@@ -29,12 +31,18 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         random = new Random();
         moveLeft = false;
         moveRight = false;
+        shooting = false;
         listenerActions = new ListenerActions();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
 
         // Set images
         imageSelection.setGameImages();
+
+        // ImageLoader.setGameInstance(this);
+
+
+    //    frame.setJMenuBar(MenuBarManager.createMenuBar(this));
 
         setFocusable(true);
         addKeyListener(this);
@@ -61,6 +69,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     @Override
     public void keyTyped(KeyEvent e) {
+
         // Not used. Not providing an implementation Violates Integration Segregation
         // Principle
         // Could be used for character keys.

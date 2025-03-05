@@ -2,14 +2,15 @@ package spaceinvaders;
 
 import java.awt.*;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.io.InputStream;
 import java.net.URL;
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 public class ImageSelection {
     private Image shooterImage;
     private Image invaderImage;
+    private static final String DEFAULT_SHOOTER_PATH = "/resources/default/ShooterDefault.png";
+    private static final String DEFAULT_INVADER_PATH = "/resources/default/InvaderDefault.png";
 
     public Image getShooterImage() {
         return shooterImage;
@@ -20,32 +21,39 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "./resources/ShooterImage.png");
-        invaderImage = loadImage("invader", "./resources/InvaderImage.png");
+        shooterImage = loadImage("shooter", "./resources/ShooterImages/shooter1.png", DEFAULT_SHOOTER_PATH);
+        invaderImage = loadImage("invader", "./resources/InvaderImages/invader1.png", DEFAULT_INVADER_PATH);
     }
 
-    private static Image loadImage(String imageType, String defaultResourcePath) {
-        String imageUrl = JOptionPane.showInputDialog(null,
-                "Enter URL for " + imageType + " image (or leave blank for default):");
+    private static Image loadImage(String imageType, String mainResourcePath, String defaultResourcePath) {
+        // Try loading the main image
+        Image image = loadImageFromResource(mainResourcePath);
 
-        // Need to handle case where url is not an image, ie a png or jpeg.
-        if (imageUrl != null && !imageUrl.isEmpty()) {
-            try {
-                return ImageIO.read(new URL(imageUrl));
-            } catch (MalformedURLException e) {
-                GameExceptions.showErrorDialog(
-                        "Invalid URL for " + imageType + " image: " + e.getMessage() + "\nLoading default image");
-            } catch (IOException e) {
-                GameExceptions.showErrorDialog(
-                        "Failed to load " + imageType + " image: " + e.getMessage() + "\nLoading default image");
-            }
+        // If the main image is missing, load the default image without showing an error popup
+        if (image == null) {
+            System.out.println("Warning: " + imageType + " image not found at " + mainResourcePath + ". Loading default.");
+            image = loadImageFromResource(defaultResourcePath);
         }
 
-        // If no URL is provided or URL fails, load the default resource
-        try {
-            return ImageIO.read(ImageSelection.class.getResource(defaultResourcePath));
+        return image;
+    }
+
+    private static Image loadImageFromResource(String resourcePath) {
+        URL resourceUrl = ImageSelection.class.getResource(resourcePath);
+        if (resourceUrl == null) {
+            System.out.println("Error: Resource not found at " + resourcePath);
+            return null;
+        }
+
+        // Try loading using ClassLoader
+        try (InputStream stream = ImageSelection.class.getResourceAsStream(resourcePath)) {
+            if (stream == null) {
+                System.out.println("Error: Resource stream is null for " + resourcePath);
+                return null;
+            }
+            return ImageIO.read(stream);
         } catch (IOException e) {
-            GameExceptions.showErrorDialog("Failed to load default " + imageType + " image: " + e.getMessage());
+            System.out.println("Error: Failed to load image at " + resourcePath + " - " + e.getMessage());
         }
 
         return null;
