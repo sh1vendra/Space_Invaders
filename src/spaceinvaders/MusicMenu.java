@@ -34,7 +34,7 @@ public class MusicMenu {
         return musicMenu;
     }
     public static void playDefaultMusic() {
-        playMusic("src/spaceinvaders/MusicFolder/music1.wav"); // Change to your preferred default track
+        playMusic("src/spaceinvaders/MusicFolder/default.wav"); // Change to your preferred default track
     }
     public static void playCustomMusic() {
         JFileChooser fileChooser = new JFileChooser();
