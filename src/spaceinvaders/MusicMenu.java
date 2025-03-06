@@ -22,8 +22,8 @@ public class MusicMenu {
         JMenuItem customMusic = new JMenuItem("Custom Music");
 
         music1.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music1.wav"));
-        music2.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music2.mp3"));
-        music3.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music3.mp3"));
+        music2.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music2.wav"));
+        music3.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music3.wav"));
         customMusic.addActionListener(e -> playCustomMusic());
 
         musicMenu.add(music1);
