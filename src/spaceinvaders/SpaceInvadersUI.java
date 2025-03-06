@@ -63,11 +63,17 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     @Override
     public void keyPressed(KeyEvent e) {
         listenerActions.keyPressed(e, this);
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            firing = true;
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         listenerActions.keyReleased(e, this);
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            firing = false;
+        }
     }
 
     @Override
