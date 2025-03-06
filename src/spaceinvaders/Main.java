@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        MusicMenu.playDefaultMusic();
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Space Invaders with Images");
 

@@ -19,21 +19,23 @@ public class MusicMenu {
         JMenuItem music1 = new JMenuItem("Music 1");
         JMenuItem music2 = new JMenuItem("Music 2");
         JMenuItem music3 = new JMenuItem("Music 3");
-        JMenuItem customMusic = new JMenuItem("Custom Music");
+       JMenuItem customMusic = new JMenuItem("Custom Music");
 
-        music1.addActionListener(e -> playMusic("../resources/MusicFolder/music1.mp3"));
-        music2.addActionListener(e -> playMusic("../resources/MusicFolder/music2.mp3"));
-        music3.addActionListener(e -> playMusic("../resources/MusicFolder/music3.mp3"));
+        music1.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music1.wav"));
+        music2.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music2.wav"));
+        music3.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music3.wav"));
         customMusic.addActionListener(e -> playCustomMusic());
 
         musicMenu.add(music1);
         musicMenu.add(music2);
         musicMenu.add(music3);
-        musicMenu.add(customMusic);
+       musicMenu.add(customMusic);
 
         return musicMenu;
     }
-
+    public static void playDefaultMusic() {
+        playMusic("src/spaceinvaders/MusicFolder/music1.wav"); // Change to your preferred default track
+    }
     public static void playCustomMusic() {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(null);
@@ -46,7 +48,7 @@ public class MusicMenu {
     public static void playMusic(String filename) {
         stopMusic();
         try {
-            File file = new File("resources/music/" + filename);
+            File file = new File(filename);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
             clip.open(audioStream);
@@ -64,3 +66,4 @@ public class MusicMenu {
     }
 }
 //nothing
+//check
