@@ -10,7 +10,7 @@ import javax.swing.*;
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer;
-    private Timer shootingTimer;
+    private boolean firing;
     public ArrayList<InvaderBox> invaderboxes;
     public ArrayList<Bullet> bullets;
     public Random random;
@@ -54,6 +54,9 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // ListenerActions and add overloading
     public void actionPerformed(ActionEvent e) {
         listenerActions.updatePositions(this);
+        if (firing) {
+            bullets.add(new Bullet(shooter_X_Coordinate + shooter_width / 2, 550));
+        }
         repaint();
     }
 
