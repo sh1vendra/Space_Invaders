@@ -87,9 +87,6 @@ public class ListenerActions {
         if (key == KeyEvent.VK_RIGHT) {
             game.moveRight = false;
         }
-        else {
-            game.moveRight = true; 
-        }
     }
     
 }
