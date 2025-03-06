@@ -80,11 +80,16 @@ public class ListenerActions {
 
     public void keyReleased(KeyEvent e, SpaceInvadersUI game) {
         int key = e.getKeyCode();
+        
         if (key == KeyEvent.VK_LEFT) {
             game.moveLeft = false;
         }
         if (key == KeyEvent.VK_RIGHT) {
             game.moveRight = false;
         }
+        else {
+            game.moveRight = true; 
+        }
     }
+    
 }
