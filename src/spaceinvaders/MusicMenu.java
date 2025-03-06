@@ -21,9 +21,9 @@ public class MusicMenu {
         JMenuItem music3 = new JMenuItem("Music 3");
         JMenuItem customMusic = new JMenuItem("Custom Music");
 
-        music1.addActionListener(e -> playMusic("../resources/MusicFolder/music1.mp3"));
-        music2.addActionListener(e -> playMusic("../resources/MusicFolder/music2.mp3"));
-        music3.addActionListener(e -> playMusic("../resources/MusicFolder/music3.mp3"));
+        music1.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music1.wav"));
+        music2.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music2.mp3"));
+        music3.addActionListener(e -> playMusic("src/spaceinvaders/MusicFolder/music3.mp3"));
         customMusic.addActionListener(e -> playCustomMusic());
 
         musicMenu.add(music1);
@@ -46,7 +46,7 @@ public class MusicMenu {
     public static void playMusic(String filename) {
         stopMusic();
         try {
-            File file = new File("resources/music/" + filename);
+            File file = new File(filename);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
             clip = AudioSystem.getClip();
             clip.open(audioStream);
