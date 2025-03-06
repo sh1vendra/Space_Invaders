@@ -69,7 +69,7 @@ public class ListenerActions {
         if (key == KeyEvent.VK_RIGHT) {
             game.moveRight = true;
         }
-        if (key == KeyEvent.VK_SPACE) {
+        if ((key == KeyEvent.VK_SPACE) || (key == KeyEvent.VK_LEFT) || (key == KeyEvent.VK_RIGHT)) {
             int shooter_X_Coordinate = game.getShooter_X_Coordinate();
             int shooter_width = game.getShooterWidth();
             int shooter_height = game.getShooterHeight();
@@ -80,6 +80,7 @@ public class ListenerActions {
 
     public void keyReleased(KeyEvent e, SpaceInvadersUI game) {
         int key = e.getKeyCode();
+        
         if (key == KeyEvent.VK_LEFT) {
             game.moveLeft = false;
         }
@@ -87,4 +88,5 @@ public class ListenerActions {
             game.moveRight = false;
         }
     }
+    
 }
