@@ -22,8 +22,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private int shooter_height = 60;
     private int shooter_X_Coordinate = 200;
     private int score = 0;
-    private int level = 1; // Level variable
-    private int invaderImageIndex = 0; // Track which invader image to use
+    private int level = 1; // Level variable 
 
     // Constructor
     public SpaceInvadersUI() {
