@@ -21,6 +21,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private int shooter_width = 50;
     private int shooter_height = 60;
     private int shooter_X_Coordinate = 200;
+    private int score = 0;
+    private int level = 1; // Level variable 
 
     // Constructor
     public SpaceInvadersUI() {
@@ -87,8 +89,15 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         // Draw falling invaderboxes (as images)
         paintingActions.drawInvaders(g, invaderboxes, this);
 
+
+
         // Draw bullets (bullets)
         paintingActions.drawBullets(g, bullets, this);
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Score: " + score, 10, 20);
+        g.drawString("Level: " + level, 10, 40);
     }
 
     public int getShooterWidth() {
@@ -105,6 +114,15 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     public void setShooter_X_Coordinate(int shooter_X) {
         shooter_X_Coordinate = shooter_X;
+    }
+    public void increaseScore() {
+        score++;
+        if (score % 5 == 0) { // Every 5 points, increase level
+            level++;
+        }
+    }
+    public int getLevel() {
+        return level;
     }
 
     // These are the characters or objects used in the game. Create a shooter class

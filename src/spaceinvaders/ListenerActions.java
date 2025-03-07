@@ -54,6 +54,7 @@ public class ListenerActions {
                         new Rectangle(invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size))) {
                     bulletIterator.remove();
                     invaderboxIterator.remove();
+                    game.increaseScore();
                     break;
                 }
             }
