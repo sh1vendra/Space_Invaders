@@ -89,6 +89,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         // Draw falling invaderboxes (as images)
         paintingActions.drawInvaders(g, invaderboxes, this);
 
+
+
         // Draw bullets (bullets)
         paintingActions.drawBullets(g, bullets, this);
 
@@ -118,6 +120,9 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         if (score % 5 == 0) { // Every 5 points, increase level
             level++;
         }
+    }
+    public int getLevel() {
+        return level;
     }
 
     // These are the characters or objects used in the game. Create a shooter class
