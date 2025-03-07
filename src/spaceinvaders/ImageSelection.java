@@ -24,7 +24,8 @@ public class ImageSelection {
     }
     public Image getInvaderImage(int level) {
         String invaderImagePath = "./images/invader" + ((level % 3) + 1) + ".png";
-        return loadImageFromResource(invaderImagePath);
+        invaderImage = loadImageFromResource(invaderImagePath); // Store new image
+    return invaderImage;
     }
 
     public Image getBulletImage() {

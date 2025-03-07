@@ -20,10 +20,10 @@ public class PaintingActions {
     }
 
     public void drawInvaders(Graphics g, java.util.List<SpaceInvadersUI.InvaderBox> invaderboxes,SpaceInvadersUI game) {
-        Image invaderboxImage = game.imageSelection.getInvaderImage();
+        Image invaderImage = game.imageSelection.getInvaderImage(game.getLevel());
 
         for (SpaceInvadersUI.InvaderBox invaderbox : invaderboxes) {
-            g.drawImage(invaderboxImage, invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size, game);
+            g.drawImage(invaderImage, invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size, game);
         }
     }
 
