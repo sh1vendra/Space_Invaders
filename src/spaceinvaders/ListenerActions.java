@@ -19,6 +19,14 @@ public class ListenerActions {
             game.setShooter_X_Coordinate(shooter_X_Coordinate + 5);
         }
 
+        if (spacePressed) {
+            int shooter_height = game.getShooterHeight();
+            game.bullets.add(
+                    game.new Bullet(shooter_X_Coordinate + shooter_Width / 2, 
+                                   game.getHeight() - shooter_height));
+        }
+
+
         // Add new falling invaderboxs randomly
         if (game.random.nextInt(100) < 2) {
             int x = game.random.nextInt(game.getWidth());
