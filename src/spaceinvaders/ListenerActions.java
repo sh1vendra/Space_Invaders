@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class ListenerActions {
 
     private boolean spacePressed = false;
+    private int fireCounter = 0;
 
     public void updatePositions(SpaceInvadersUI game) {
         int shooter_X_Coordinate = game.getShooter_X_Coordinate();
@@ -20,10 +21,15 @@ public class ListenerActions {
         }
 
         if (spacePressed) {
-            int shooter_height = game.getShooterHeight();
-            game.bullets.add(
-                    game.new Bullet(shooter_X_Coordinate + shooter_Width / 2, 
-                                   game.getHeight() - shooter_height));
+            if (fireCounter <= 0) {
+                int shooter_height = game.getShooterHeight();
+                game.bullets.add(
+                        game.new Bullet(shooter_X_Coordinate + shooter_Width / 2, 
+                                       game.getHeight() - shooter_height));
+                fireCounter = 10; // Reset counter to delay between shots
+            } else {
+                fireCounter--;
+            }
         }
 
 
@@ -82,7 +88,15 @@ public class ListenerActions {
         }
         if ((key == KeyEvent.VK_SPACE)) {
             spacePressed = true;
+            int shooter_X_Coordinate = game.getShooter_X_Coordinate();
+            int shooter_width = game.getShooterWidth();
+            int shooter_height = game.getShooterHeight();
+            game.bullets.add(
+                    game.new Bullet(shooter_X_Coordinate + shooter_width / 2, 
+                                   game.getHeight() - shooter_height));
+            fireCounter = 10; // Reset counter
         }
+        
     }
 
     public void keyReleased(KeyEvent e, SpaceInvadersUI game) {
