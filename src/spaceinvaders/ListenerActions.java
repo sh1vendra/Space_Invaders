@@ -6,6 +6,8 @@ import java.util.Iterator;
 
 public class ListenerActions {
 
+    private boolean spacePressed = false;
+
     public void updatePositions(SpaceInvadersUI game) {
         int shooter_X_Coordinate = game.getShooter_X_Coordinate();
         int shooter_Width = game.getShooterWidth();
