@@ -6,6 +6,9 @@ import java.util.Iterator;
 
 public class ListenerActions {
 
+    private boolean spacePressed = false;
+    private int fireCounter = 0;
+
     public void updatePositions(SpaceInvadersUI game) {
         int shooter_X_Coordinate = game.getShooter_X_Coordinate();
         int shooter_Width = game.getShooterWidth();
@@ -16,6 +19,19 @@ public class ListenerActions {
         if (game.moveRight && shooter_X_Coordinate < game.getWidth() - shooter_Width) {
             game.setShooter_X_Coordinate(shooter_X_Coordinate + 5);
         }
+
+        if (spacePressed) {
+            if (fireCounter <= 0) {
+                int shooter_height = game.getShooterHeight();
+                game.bullets.add(
+                        game.new Bullet(shooter_X_Coordinate + shooter_Width / 2, 
+                                       game.getHeight() - shooter_height));
+                fireCounter = 10; // Reset counter to delay between shots
+            } else {
+                fireCounter--;
+            }
+        }
+
 
         // Add new falling invaderboxs randomly
         if (game.random.nextInt(100) < 2) {
@@ -70,13 +86,17 @@ public class ListenerActions {
         if (key == KeyEvent.VK_RIGHT) {
             game.moveRight = true;
         }
-        if ((key == KeyEvent.VK_SPACE) || (key == KeyEvent.VK_LEFT) || (key == KeyEvent.VK_RIGHT)) {
+        if ((key == KeyEvent.VK_SPACE)) {
+            spacePressed = true;
             int shooter_X_Coordinate = game.getShooter_X_Coordinate();
             int shooter_width = game.getShooterWidth();
             int shooter_height = game.getShooterHeight();
             game.bullets.add(
-                    game.new Bullet(shooter_X_Coordinate + shooter_width / 2, game.getHeight() - shooter_height));
+                    game.new Bullet(shooter_X_Coordinate + shooter_width / 2, 
+                                   game.getHeight() - shooter_height));
+            fireCounter = 10; // Reset counter
         }
+        
     }
 
     public void keyReleased(KeyEvent e, SpaceInvadersUI game) {
@@ -87,6 +107,9 @@ public class ListenerActions {
         }
         if (key == KeyEvent.VK_RIGHT) {
             game.moveRight = false;
+        }
+        if (key == KeyEvent.VK_SPACE) {
+            spacePressed = false;
         }
     }
     //branch 
