@@ -81,11 +81,7 @@ public class ListenerActions {
             game.moveRight = true;
         }
         if ((key == KeyEvent.VK_SPACE)) {
-            int shooter_X_Coordinate = game.getShooter_X_Coordinate();
-            int shooter_width = game.getShooterWidth();
-            int shooter_height = game.getShooterHeight();
-            game.bullets.add(
-                    game.new Bullet(shooter_X_Coordinate + shooter_width / 2, game.getHeight() - shooter_height));
+            spacePressed = true;
         }
     }
 
