@@ -94,6 +94,9 @@ public class ListenerActions {
         if (key == KeyEvent.VK_RIGHT) {
             game.moveRight = false;
         }
+        if (key == KeyEvent.VK_SPACE) {
+            spacePressed = false;
+        }
     }
     
 }
