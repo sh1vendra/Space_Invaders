@@ -38,14 +38,47 @@ public class ImageSelection {
         System.out.println("Shooter image updated: " + imagePath);
     }
 
+    public void setShooterImageFromURL(String imageUrl) {
+        Image image = GameExceptions.loadImageFromURL(imageUrl, "shooter");
+        if (image != null) {
+            shooterImage = image;
+            System.out.println("Shooter image updated from URL: " + imageUrl);
+        } else {
+            // If image couldn't be loaded, use default
+            shooterImage = loadImage("shooter", DEFAULT_SHOOTER_PATH, DEFAULT_SHOOTER_PATH);
+        }
+    }
+
     public void setInvaderImage(String imagePath) {
         invaderImage = loadImage("invader",imagePath, DEFAULT_INVADER_PATH);
         System.out.println("Invader image updated: " + imagePath);
     }
 
+    public void setInvaderImageFromURL(String imageUrl) {
+        Image image = GameExceptions.loadImageFromURL(imageUrl, "invader");
+        if (image != null) {
+            invaderImage = image;
+            System.out.println("Invader image updated from URL: " + imageUrl);
+        } else {
+            // If image couldn't be loaded, use default
+            invaderImage = loadImage("invader", DEFAULT_INVADER_PATH, DEFAULT_INVADER_PATH);
+        }
+    }
+
     public void setBulletImage(String imagePath) {
         bulletImage = loadImage("bullet",imagePath, DEFAULT_BULLET_PATH);
         System.out.println("Bullet image updated: " + imagePath);
+    }
+
+    public void setBulletImageFromURL(String imageUrl) {
+        Image image = GameExceptions.loadImageFromURL(imageUrl, "bullet");
+        if (image != null) {
+            bulletImage = image;
+            System.out.println("Bullet image updated from URL: " + imageUrl);
+        } else {
+            // If image couldn't be loaded, use default
+            bulletImage = loadImage("bullet", DEFAULT_BULLET_PATH, DEFAULT_BULLET_PATH);
+        }
     }
 
     private static Image loadImage(String imageType, String mainResourcePath, String defaultResourcePath) {
