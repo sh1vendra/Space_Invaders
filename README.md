@@ -2,15 +2,12 @@
 
 A modern Java implementation of the classic Space Invaders arcade game featuring customizable graphics, dynamic music system, and smooth gameplay mechanics.
 
----
-
 ## Screenshots
 
 <img width="853" height="701" alt="Screenshot 2025-09-15 at 8 07 30 PM" src="https://github.com/user-attachments/assets/a6c7d062-e21e-49ab-ac80-caf5b071ee3c" />
 <img width="853" height="701" alt="Screenshot 2025-09-15 at 8 08 43 PM" src="https://github.com/user-attachments/assets/40536ad3-c745-4006-b3a1-a71a00867b37" />
 
 
----
 
 ## Tech Stack
 
@@ -30,3 +27,41 @@ A modern Java implementation of the classic Space Invaders arcade game featuring
 - `java.awt.*` — Graphics, events, and image handling  
 - `javax.sound.sampled.*` — Audio file playback  
 - `javax.imageio.ImageIO` — Image loading and processi
+
+## Features
+
+### Core Gameplay
+- Smooth movement controls — Arrow keys for horizontal movement  
+- Weapon system — Space bar for rapid fire bullets  
+- Enemy spawning — Dynamic invader generation  
+- Collision detection — Bullet-enemy intersection mechanics  
+- Scoring system — Points for enemy elimination  
+- Progressive levels — Difficulty increases every 5 points  
+
+### Customization System
+- Character selection — Multiple shooter sprites or custom URL images  
+- Enemy variants — Different invader designs with URL support  
+- Bullet types — Various projectile graphics  
+- Music integration — Background audio with custom file support  
+
+### Technical Features
+- Modular architecture — Separation of concerns across multiple classes  
+- Error handling — Graceful fallback for failed image/audio loading  
+- Resource management — Efficient image caching and cleanup  
+- Real-time rendering — 20ms timer-based game loop (50 FPS)  
+
+
+## Project Structure
+
+spaceinvaders/
+├── Main.java # Application entry point
+├── SpaceInvadersUI.java # Core game engine and UI
+├── MenuBarManager.java # Menu system coordinator
+├── ImageSelection.java # Image loading and management
+├── ListenerActions.java # Game logic and input handling
+├── PaintingActions.java # Rendering and graphics
+├── GameExceptions.java # Error handling utilities
+├── ShooterMenu.java # Player character customization
+├── InvaderMenu.java # Enemy appearance options
+├── BulletMenu.java # Projectile customization
+└── MusicMenu.java # Audio system management
